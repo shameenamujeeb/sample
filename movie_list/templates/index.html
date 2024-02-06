@@ -1,0 +1,29 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block body %}
+
+<!--     <div class="slide-1" style="background-image: url({% static 'images/adb.jpg' %});background-repeat:no-repeat;background-size:auto 100%">-->
+<h1 style="padding:20px"> Welcome........</h1>
+<div class="container">
+<div class="row">
+    {% for mov in movielst %}
+    <div class="col-md-3">
+        <div class="card">
+  <img class="card-img-top" src="{{mov.img.url}}" alt="...." width="100px" height="250px">
+  <div class="card-body">
+    <h5 class="card-title">{{mov.name}}</h5>
+<!--    <p class="card-text">{{mov.dec}}</p>-->
+    <a href="{% url 'movie_app:detail' mov.id %}" class="btn btn-warning">View Details</a>
+  </div>
+</div>
+    </div>
+
+     {% endfor %}
+    </div>
+
+</div>
+
+<!--<a href="movie/{{mov.id}}">{{mov.name}}<br></a>-->
+<!--{{mov.year}}<br>{{mov.dec}}<br><br>-->
+
+{% endblock %}
